@@ -1,8 +1,8 @@
 spring:
-  datasource:
-    url: ${SPRING_DATASOURCE_URL}
-    username: ${SPRING_DATASOURCE_USERNAME}
-    password: ${SPRING_DATASOURCE_PASSWORD}
+  datasource: 
+    url: jdbc:sqlserver://${azureservername}.database.windows.net:1433;database=${azuredatabasename};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30
+    username: ${username}
+    password: ${password}
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
   jpa:
     hibernate:
@@ -16,7 +16,7 @@ spring:
 application:
   security:
     jwt:
-      secret-key: ${JWT_SECRET_KEY}
+      secret-key: ${jwtkey}
       expiration: 86400000 # a day
       refresh-token:
         expiration: 604800000 # 7 days
