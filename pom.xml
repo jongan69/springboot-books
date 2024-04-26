@@ -88,6 +88,11 @@
 					</excludes>
 				</configuration>
 			</plugin>
+		    <plugin>
+		        <groupId>com.microsoft.azure</groupId>
+		        <artifactId>azure-spring-apps-maven-plugin</artifactId>
+		        <version>1.18.0</version>
+		    </plugin>
 		</plugins>
 	</build>
 
