@@ -13,12 +13,12 @@ import io.swagger.v3.oas.annotations.servers.Server;
 @OpenAPIDefinition(
         info = @Info(
                 contact = @Contact(
-                        name = "Library",
+                        name = "React Library",
                         email = "contact@library.com",
-                        url = "https://library.com/course"
+                        url = "https://fullstack-library-ruby.vercel.app/"
                 ),
                 description = "OpenApi documentation for Spring Security",
-                title = "OpenApi specification - Alibou",
+                title = "Springboot Library OpenApi specification",
                 version = "1.0",
                 license = @License(
                         name = "Licence name",
@@ -33,7 +33,7 @@ import io.swagger.v3.oas.annotations.servers.Server;
                 ),
                 @Server(
                         description = "PROD ENV",
-                        url = "https://library.com/"
+                        url = "https://security.grayfield-70b52b76.eastus.azurecontainerapps.io"
                 )
         },
         security = {

@@ -37,8 +37,8 @@ public class BookService {
         return repository.findById(id);
     }
 
-    public void deleteBookById(int id) {
-        repository.deleteById(id);
-    }
+    // public void deleteBookById(Long id) {
+    //     repository.deleteById(id);
+    // }
 
 }
