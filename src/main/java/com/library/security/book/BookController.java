@@ -26,46 +26,16 @@ public class BookController {
         return ResponseEntity.ok(service.findAll());
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Book> getBookById(@PathVariable int id) {
+        return service.findById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
 
-    // @GetMapping("/secure/currentloans")
-    // public List<ShelfCurrentLoansResponse> currentLoans(@RequestHeader(value = "Authorization") String token)
-    //     throws Exception
-    // {
-    //     String userEmail = ExtractJWT.payloadJWTExtraction(token, "\"sub\"");
-    //     return bookService.currentLoans(userEmail);
-    // }
-
-    // @GetMapping("/secure/currentloans/count")
-    // public int currentLoansCount(@RequestHeader(value = "Authorization") String token) {
-    //     String userEmail = ExtractJWT.payloadJWTExtraction(token, "\"sub\"");
-    //     return bookService.currentLoansCount(userEmail);
-    // }
-
-    // @GetMapping("/secure/ischeckedout/byuser")
-    // public Boolean checkoutBookByUser(@RequestHeader(value = "Authorization") String token,
-    //                                   @RequestParam Long bookId) {
-    //     String userEmail = ExtractJWT.payloadJWTExtraction(token, "\"sub\"");
-    //     return bookService.checkoutBookByUser(userEmail, bookId);
-    // }
-
-    // @PutMapping("/secure/checkout")
-    // public Book checkoutBook (@RequestHeader(value = "Authorization") String token,
-    //                           @RequestParam Long bookId) throws Exception {
-    //     String userEmail = ExtractJWT.payloadJWTExtraction(token, "\"sub\"");
-    //     return bookService.checkoutBook(userEmail, bookId);
-    // }
-
-    // @PutMapping("/secure/return")
-    // public void returnBook(@RequestHeader(value = "Authorization") String token,
-    //                        @RequestParam Long bookId) throws Exception {
-    //     String userEmail = ExtractJWT.payloadJWTExtraction(token, "\"sub\"");
-    //     bookService.returnBook(userEmail, bookId);
-    // }
-
-    // @PutMapping("/secure/renew/loan")
-    // public void renewLoan(@RequestHeader(value = "Authorization") String token,
-    //                       @RequestParam Long bookId) throws Exception {
-    //     String userEmail = ExtractJWT.payloadJWTExtraction(token, "\"sub\"");
-    //     bookService.renewLoan(userEmail, bookId);
+    // @DeleteMapping("/{id}")
+    // public ResponseEntity<?> deleteBook(@PathVariable Long id) {
+    //     service.deleteBookById(id);
+    //     return ResponseEntity.noContent().build();
     // }
 }

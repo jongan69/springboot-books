@@ -24,8 +24,10 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     @Column(name = "title")
     private String title;
+    
     private String author;
     private String isbn;
 
@@ -51,6 +53,9 @@ public class Book {
     @LastModifiedBy
     @Column(insertable = false)
     private Integer lastModifiedBy;
+
+    @Column(name = "description")
+    private String description;
 
     @Column(name = "copies")
     private int copies;
