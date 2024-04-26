@@ -29,8 +29,11 @@ To build and run the project, follow these steps:
 * Navigate to the project directory: cd backend
 * Create SQL Server in Azure and use `cp .env.example .env` and enter the sql server details
 * Run `export $(cat .env | xargs)` in terminal to put .env variables in shell
-* Build the project: mvn clean install
-* Run the project: mvn spring-boot:run 
+* Build the project: `mvn clean install`
+* Run the project: `mvn spring-boot:run`
+* To Prepare for azure deploy: 
+`export MAVEN_OPTS="--add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED" ./mvnw com.microsoft azure:azure-spring-apps-maven-plugin:1.18.0:config -DadvancedOptions`
+* To Deploy to azure:
+`./mvnw azure-spring-apps:deploy `
 
 -> The application will be available at http://localhost:8080.
-# springboot-books

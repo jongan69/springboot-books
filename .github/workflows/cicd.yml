@@ -1,0 +1,30 @@
+name: AzureSpringApps
+on: push
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: actions/checkout@main
+
+    - name: Set up Java 11
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: '11'
+
+    - name: maven build, clean
+      run: |
+        mvn clean package -DskipTests
+
+    # Maven plugin can cosume this authentication method automatically
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    # Maven deploy, make sure you have correct configurations in your pom.xml
+    - name: deploy to Azure Spring Apps using Maven
+      run: |
+        mvn azure-spring-apps:deploy
