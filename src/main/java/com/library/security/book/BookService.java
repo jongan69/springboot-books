@@ -2,9 +2,6 @@ package com.library.security.book;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-// import com.library.security.checkout;
-// import com.library.security.history;
-// import com.library.security.book.ShelfCurrentLoansResponse;
 
 import java.util.List;
 import java.util.Optional;
@@ -37,8 +34,8 @@ public class BookService {
         return repository.findById(id);
     }
 
-    // public void deleteBookById(Long id) {
-    //     repository.deleteById(id);
-    // }
+    public void deleteBookById(Long id) {
+        repository.deleteBooksByIds(id);
+    }
 
 }

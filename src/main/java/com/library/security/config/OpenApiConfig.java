@@ -21,8 +21,8 @@ import io.swagger.v3.oas.annotations.servers.Server;
                 title = "Springboot Library OpenApi specification",
                 version = "1.0",
                 license = @License(
-                        name = "Licence name",
-                        url = "https://some-url.com"
+                        name = "Kin and Carta",
+                        url = "https://fullstack-library-ruby.vercel.app/"
                 ),
                 termsOfService = "Terms of service"
         ),

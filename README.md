@@ -31,9 +31,24 @@ To build and run the project, follow these steps:
 * Run `export $(cat .env | xargs)` in terminal to put .env variables in shell
 * Build the project: `mvn clean install`
 * Run the project: `mvn spring-boot:run`
+
+## Steps for Azure Deployment
+
 * To Prepare for azure deploy: 
 `export MAVEN_OPTS="--add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED" ./mvnw com.microsoft azure:azure-spring-apps-maven-plugin:1.18.0:config -DadvancedOptions`
 * To Deploy to azure:
-`./mvnw azure-spring-apps:deploy `
+`./mvnw azure-spring-apps:deploy`
+
+### Azure Github Action
+* Deploy with Github Action You need Azure creds in github env
+1. With Azure CLI installed run 
+
+`az ad sp create-for-rbac \
+    --role contributor \
+    --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> \
+    --json-auth`
+
+2. Set .env variable in github.com:
+`AZURE_CREDENTIALS`: `Copy and paste above output`
 
 -> The application will be available at http://localhost:8080.

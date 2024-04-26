@@ -2,13 +2,11 @@ package com.library.security;
 
 import com.library.security.auth.AuthenticationService;
 import com.library.security.auth.RegisterRequest;
-import com.library.security.user.Role;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
-import org.springframework.context.annotation.Bean;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -22,6 +20,7 @@ public class SecurityApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SecurityApplication.class, args);
 	}
+	
 	//PROD
 	// @Bean
 	// public WebMvcConfigurer corsConfigurer() {
@@ -38,7 +37,7 @@ public class SecurityApplication {
 	public WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurer() {
 			@Override
-			public void addCorsMappings(CorsRegistry registry) {
+			public void addCorsMappings(@SuppressWarnings("null") CorsRegistry registry) {
 				registry.addMapping("/**").allowedOrigins("*");
 			}
 		};
