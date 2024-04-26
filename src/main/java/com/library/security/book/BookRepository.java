@@ -19,7 +19,7 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
     @Query("select o from Book o where id in :book_ids")
     List<Book> findBooksByBookIds (@Param("book_ids") List<Book> bookId);
 
-    // @Modifying
-    // @Query("delete from Book b where b.id in :bookIds")
-    // int deleteBooksByIds(@Param("bookIds") List<Long> bookIds);
+    @Modifying
+    @Query("delete from Book b where b.id in :bookIds")
+    List<Book> deleteBooksByIds(@Param("bookIds") List<Book> bookIds);
 }
