@@ -13,6 +13,15 @@ spring:
         format_sql: true
     database: SQL_SERVER
 
+okta:
+  oauth2:
+    client-id: 0oagpohm2l2G3DJ2u5d7
+    issuer: https://dev-24319924.okta.com/oauth2/default
+
+stripe:
+  key:
+    secret: ${stripesecret}
+
 application:
   security:
     jwt:
