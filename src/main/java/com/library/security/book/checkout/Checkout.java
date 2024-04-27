@@ -31,4 +31,29 @@ public class Checkout {
 
     @Column(name = "book_id")
     private Long bookId;
+
+    public Long getBookId() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getBookId'");
+    }
+
+    public String getReturnDate() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getReturnDate'");
+    }
+
+    public String getCheckoutDate() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getCheckoutDate'");
+    }
+
+    public Long getId() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getId'");
+    }
+
+    public void setReturnDate(String string) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setReturnDate'");
+    }
 }

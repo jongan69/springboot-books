@@ -13,6 +13,8 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.logout.LogoutHandler;
 
+import com.okta.spring.boot.oauth.Okta;
+
 import static com.library.security.user.Permission.ADMIN_CREATE;
 import static com.library.security.user.Permission.ADMIN_DELETE;
 import static com.library.security.user.Permission.ADMIN_READ;
@@ -77,6 +79,9 @@ public class SecurityConfiguration {
                                 .logoutSuccessHandler((request, response, authentication) -> SecurityContextHolder.clearContext())
                 )
         ;
+
+         // Force a non-empty response body for 401's to make the response friendly
+        Okta.configureResourceServer401ResponseBody(http);
 
         return http.build();
     }
