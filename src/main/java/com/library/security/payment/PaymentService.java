@@ -22,8 +22,6 @@ public class PaymentService {
     private PaymentRepository paymentRepository;
 
     StripeClient client = new StripeClient("${stripe.key.secret}");
-    // Stripe.apiKey = "${stripe.key.secret}";
-
 
     public PaymentIntent createPaymentIntent(PaymentInfoRequest paymentInfoRequest) throws StripeException {
         List<String> paymentMethodTypes = new ArrayList<>();
